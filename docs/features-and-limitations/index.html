@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.0">
 <title data-rh="true">Features and Limitations | OneTable</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://onetable.dev/docs/features-and-limitations"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Features and Limitations | OneTable"><meta data-rh="true" name="description" content="Features"><meta data-rh="true" property="og:description" content="Features"><link data-rh="true" rel="icon" href="/img/onetable_favicon.png"><link data-rh="true" rel="canonical" href="https://onetable.dev/docs/features-and-limitations"><link data-rh="true" rel="alternate" href="https://onetable.dev/docs/features-and-limitations" hreflang="en"><link data-rh="true" rel="alternate" href="https://onetable.dev/docs/features-and-limitations" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.c69256a0.css">
-<script src="/assets/js/runtime~main.576f2d38.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.9b05fb12.js" defer="defer"></script>
 <script src="/assets/js/main.c1794852.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -31,7 +31,12 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="hudi">Hudi<a href="#hudi" class="hash-link" aria-label="Direct link to Hudi" title="Direct link to Hudi">​</a></h3>
 <ul>
-<li>Hudi 0.14.0 is required when reading a Hudi target table. Users will also need to enable the metadata table (<code>hoodie.metadata.enable=true</code>) when reading the data.</li>
+<li>Hudi 0.14.0 is required when reading a Hudi target table. Users will also need to enable<!-- -->
+<ul>
+<li>the metadata table (<code>hoodie.metadata.enable=true</code>) and</li>
+<li>hive style partitioning (<code>hoodie.datasource.write.hive_style_partitioning=true</code>) wherever applicable when reading the data.</li>
+</ul>
+</li>
 <li>Be sure to enable <code>parquet.avro.write-old-list-structure=false</code> for proper compatibility with lists when syncing from Hudi to Iceberg.</li>
 <li>When using Hudi as the source for an Iceberg target, you may require field IDs set in the parquet schema. To enable that, follow the instructions <a href="https://github.com/onetable-io/onetable/tree/main/hudi-support/extensions" target="_blank" rel="noopener noreferrer">here</a>.</li>
 </ul>
