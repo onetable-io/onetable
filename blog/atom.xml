@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://onetable.dev/blog</id>
+    <title>OneTable Blog</title>
+    <updated>2023-11-15T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://onetable.dev/blog"/>
+    <subtitle>OneTable Blog</subtitle>
+    <icon>https://onetable.dev/images/onetable_favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[OneTable is Now Open Source]]></title>
+        <id>https://onetable.dev/blog/onetable-now-oss</id>
+        <link href="https://onetable.dev/blog/onetable-now-oss"/>
+        <updated>2023-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.onehouse.ai/blog/onetable-is-now-open-source">here</a></span>]]></content>
+        <author>
+            <name>Kyle Weller and Tim Brown</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+        <category label="hudi" term="hudi"/>
+        <category label="delta" term="delta"/>
+        <category label="iceberg" term="iceberg"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Road to an Open and Interoperable Lakehouse]]></title>
+        <id>https://onetable.dev/blog/road-to-interoperable-lakehouse</id>
+        <link href="https://onetable.dev/blog/road-to-interoperable-lakehouse"/>
+        <updated>2023-07-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.onehouse.ai/blog/the-road-to-an-open-and-interoperable-lakehouse">here</a></span>]]></content>
+        <author>
+            <name>Kyle Weller</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+        <category label="hudi" term="hudi"/>
+        <category label="delta" term="delta"/>
+        <category label="iceberg" term="iceberg"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Announcing OneTable]]></title>
+        <id>https://onetable.dev/blog/announcing-onetable</id>
+        <link href="https://onetable.dev/blog/announcing-onetable"/>
+        <updated>2023-02-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.onehouse.ai/blog/onetable-hudi-delta-iceberg">here</a></span>]]></content>
+        <author>
+            <name>Tim Brown</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+        <category label="hudi" term="hudi"/>
+        <category label="delta" term="delta"/>
+        <category label="iceberg" term="iceberg"/>
+    </entry>
+</feed>

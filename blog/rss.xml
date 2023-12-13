@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>OneTable Blog</title>
+        <link>https://onetable.dev/blog</link>
+        <description>OneTable Blog</description>
+        <lastBuildDate>Wed, 15 Nov 2023 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[OneTable is Now Open Source]]></title>
+            <link>https://onetable.dev/blog/onetable-now-oss</link>
+            <guid>https://onetable.dev/blog/onetable-now-oss</guid>
+            <pubDate>Wed, 15 Nov 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Redirecting... please wait!!]]></description>
+            <content:encoded><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.onehouse.ai/blog/onetable-is-now-open-source">here</a></span>]]></content:encoded>
+            <category>onetable</category>
+            <category>interoperability</category>
+            <category>hudi</category>
+            <category>delta</category>
+            <category>iceberg</category>
+        </item>
+        <item>
+            <title><![CDATA[The Road to an Open and Interoperable Lakehouse]]></title>
+            <link>https://onetable.dev/blog/road-to-interoperable-lakehouse</link>
+            <guid>https://onetable.dev/blog/road-to-interoperable-lakehouse</guid>
+            <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Redirecting... please wait!!]]></description>
+            <content:encoded><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.onehouse.ai/blog/the-road-to-an-open-and-interoperable-lakehouse">here</a></span>]]></content:encoded>
+            <category>onetable</category>
+            <category>interoperability</category>
+            <category>hudi</category>
+            <category>delta</category>
+            <category>iceberg</category>
+        </item>
+        <item>
+            <title><![CDATA[Announcing OneTable]]></title>
+            <link>https://onetable.dev/blog/announcing-onetable</link>
+            <guid>https://onetable.dev/blog/announcing-onetable</guid>
+            <pubDate>Thu, 02 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Redirecting... please wait!!]]></description>
+            <content:encoded><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.onehouse.ai/blog/onetable-hudi-delta-iceberg">here</a></span>]]></content:encoded>
+            <category>onetable</category>
+            <category>interoperability</category>
+            <category>hudi</category>
+            <category>delta</category>
+            <category>iceberg</category>
+        </item>
+    </channel>
+</rss>
