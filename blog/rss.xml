@@ -4,10 +4,23 @@
         <title>OneTable Blog</title>
         <link>https://onetable.dev/blog</link>
         <description>OneTable Blog</description>
-        <lastBuildDate>Wed, 15 Nov 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Dec 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[OneTable: Interoperability for Apache Hudi, Iceberg and Delta Lake]]></title>
+            <link>https://onetable.dev/blog/onetable-intro-dip</link>
+            <guid>https://onetable.dev/blog/onetable-intro-dip</guid>
+            <pubDate>Thu, 07 Dec 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Redirecting... please wait!!]]></description>
+            <content:encoded><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://dipankar-tnt.medium.com/onetable-interoperability-for-apache-hudi-iceberg-delta-lake-bb8b27dd288d">here</a></span>]]></content:encoded>
+            <category>onetable</category>
+            <category>interoperability</category>
+            <category>hudi</category>
+            <category>delta</category>
+            <category>iceberg</category>
+        </item>
         <item>
             <title><![CDATA[OneTable is Now Open Source]]></title>
             <link>https://onetable.dev/blog/onetable-now-oss</link>
