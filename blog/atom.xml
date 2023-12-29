@@ -2,11 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://onetable.dev/blog</id>
     <title>OneTable Blog</title>
-    <updated>2023-12-07T00:00:00.000Z</updated>
+    <updated>2023-12-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://onetable.dev/blog"/>
     <subtitle>OneTable Blog</subtitle>
     <icon>https://onetable.dev/images/onetable_favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[OneTable: A Catalyst for an Open and Interoperable Lakehouse]]></title>
+        <id>https://onetable.dev/blog/interop-lakehouse</id>
+        <link href="https://onetable.dev/blog/interop-lakehouse"/>
+        <updated>2023-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.linkedin.com/pulse/onetable-catalyst-open-interoperable-lakehouse-sushil-kumar-xprre/">here</a></span>]]></content>
+        <author>
+            <name>Sushil K.</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OneTable: Interoperability for Apache Hudi, Iceberg and Delta Lake]]></title>
         <id>https://onetable.dev/blog/onetable-intro-dip</id>
@@ -24,6 +37,34 @@
         <category label="iceberg" term="iceberg"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Hands-on guide to omni-directional interop with OneTable]]></title>
+        <id>https://onetable.dev/blog/breaking-data-silos</id>
+        <link href="https://onetable.dev/blog/breaking-data-silos"/>
+        <updated>2023-11-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://www.linkedin.com/pulse/breaking-down-data-silos-hands-on-guide-conversion-onetable-shah-tpbpe/">here</a></span>]]></content>
+        <author>
+            <name>Soumil S.</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+        <category label="hands-on-guide" term="hands-on-guide"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft and Google join forces on OneTable]]></title>
+        <id>https://onetable.dev/blog/onetable-launch</id>
+        <link href="https://onetable.dev/blog/onetable-launch"/>
+        <updated>2023-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://venturebeat.com/data-infrastructure/exclusive-microsoft-and-google-join-forces-on-onetable-an-open-source-solution-for-data-lake-challenges/">here</a></span>]]></content>
+        <author>
+            <name>Sean Michael Kerner</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+        <category label="venturebeat" term="venturebeat"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[OneTable is Now Open Source]]></title>
         <id>https://onetable.dev/blog/onetable-now-oss</id>
         <link href="https://onetable.dev/blog/onetable-now-oss"/>
@@ -38,6 +79,20 @@
         <category label="hudi" term="hudi"/>
         <category label="delta" term="delta"/>
         <category label="iceberg" term="iceberg"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Onehouse open-sources OneTable with support from Google and Microsoft]]></title>
+        <id>https://onetable.dev/blog/siliconangle-onetable</id>
+        <link href="https://onetable.dev/blog/siliconangle-onetable"/>
+        <updated>2023-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Redirecting... please wait!!]]></summary>
+        <content type="html"><![CDATA[<span>Redirecting... please wait!! <!-- -->or click <a href="https://siliconangle.com/2023/11/15/onehouse-open-sources-onetable-data-tool-support-google-microsoft/">here</a></span>]]></content>
+        <author>
+            <name>Maria Deutscher</name>
+        </author>
+        <category label="onetable" term="onetable"/>
+        <category label="interoperability" term="interoperability"/>
+        <category label="siliconangle" term="siliconangle"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[The Road to an Open and Interoperable Lakehouse]]></title>

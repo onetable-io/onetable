@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([[3261],{6028:s=>{s.exports=JSON.parse('{"label":"siliconangle","permalink":"/blog/tags/siliconangle","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

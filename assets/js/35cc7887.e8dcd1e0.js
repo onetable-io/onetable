@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([[5888],{7227:e=>{e.exports=JSON.parse('{"label":"onetable","permalink":"/blog/tags/onetable","allTagsPath":"/blog/tags","count":8,"unlisted":false}')}}]);

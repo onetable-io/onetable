@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([[7645],{611:e=>{e.exports=JSON.parse('{"label":"venturebeat","permalink":"/blog/tags/venturebeat","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
