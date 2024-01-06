@@ -176,6 +176,8 @@ public class IcebergSchemaExtractor {
         return Types.LongType.get();
       case BYTES:
         return Types.BinaryType.get();
+      case UUID:
+        return Types.UUIDType.get();
       case FIXED:
         int size =
             (int) field.getSchema().getMetadata().get(OneSchema.MetadataKey.FIXED_BYTES_SIZE);
@@ -297,7 +299,7 @@ public class IcebergSchemaExtractor {
             Collections.singletonMap(OneSchema.MetadataKey.FIXED_BYTES_SIZE, fixedType.length());
         break;
       case UUID:
-        type = OneType.FIXED;
+        type = OneType.UUID;
         metadata = Collections.singletonMap(OneSchema.MetadataKey.FIXED_BYTES_SIZE, 16);
         break;
       case STRUCT:

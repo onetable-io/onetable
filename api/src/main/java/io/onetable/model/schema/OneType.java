@@ -38,6 +38,7 @@ public enum OneType {
   LIST,
   MAP,
   UNION,
+  UUID,
   FIXED,
   STRING,
   BYTES,

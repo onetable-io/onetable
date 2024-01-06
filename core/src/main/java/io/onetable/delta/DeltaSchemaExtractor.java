@@ -92,6 +92,7 @@ public class DeltaSchemaExtractor {
         return DataTypes.LongType;
       case BYTES:
       case FIXED:
+      case UUID:
         return DataTypes.BinaryType;
       case BOOLEAN:
         return DataTypes.BooleanType;

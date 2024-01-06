@@ -414,6 +414,7 @@ public class AvroSchemaConverter {
                       Schema.createFixed(oneSchema.getName(), oneSchema.getComment(), null, size)),
               oneSchema);
         }
+      case UUID:
       case FIXED:
         Integer fixedSize =
             (Integer) oneSchema.getMetadata().get(OneSchema.MetadataKey.FIXED_BYTES_SIZE);

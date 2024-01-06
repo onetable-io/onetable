@@ -350,7 +350,7 @@ public class TestIcebergSchemaExtractor {
   @Test
   public void testUuids() {
     // UUIDs are represented as fixed length byte arrays
-    Schema inputSchema =
+    Schema icebergRepresentation =
         new Schema(
             Types.NestedField.required(1, "requiredUuid", Types.UUIDType.get()),
             Types.NestedField.optional(2, "optionalUuid", Types.UUIDType.get()));
@@ -358,7 +358,7 @@ public class TestIcebergSchemaExtractor {
     int fixedSize = 16;
     Map<OneSchema.MetadataKey, Object> fixedMetadata = new HashMap<>();
     fixedMetadata.put(OneSchema.MetadataKey.FIXED_BYTES_SIZE, fixedSize);
-    OneSchema expectedSchema =
+    OneSchema oneSchemaRepresentation =
         OneSchema.builder()
             .dataType(OneType.RECORD)
             .name("record")
@@ -370,7 +370,7 @@ public class TestIcebergSchemaExtractor {
                         .schema(
                             OneSchema.builder()
                                 .name("uuid")
-                                .dataType(OneType.FIXED)
+                                .dataType(OneType.UUID)
                                 .isNullable(false)
                                 .metadata(fixedMetadata)
                                 .build())
@@ -381,14 +381,16 @@ public class TestIcebergSchemaExtractor {
                         .schema(
                             OneSchema.builder()
                                 .name("uuid")
-                                .dataType(OneType.FIXED)
+                                .dataType(OneType.UUID)
                                 .isNullable(true)
                                 .metadata(fixedMetadata)
                                 .build())
                         .defaultValue(OneField.Constants.NULL_DEFAULT_VALUE)
                         .build()))
             .build();
-    assertEquals(expectedSchema, (SCHEMA_EXTRACTOR.fromIceberg(inputSchema)));
+    assertEquals(oneSchemaRepresentation, (SCHEMA_EXTRACTOR.fromIceberg(icebergRepresentation)));
+    Assertions.assertTrue(
+        icebergRepresentation.sameSchema(SCHEMA_EXTRACTOR.toIceberg(oneSchemaRepresentation)));
   }
 
   @Test
