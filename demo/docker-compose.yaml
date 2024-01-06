@@ -1,5 +1,46 @@
 version: "3.9"
 services:
+  spark-master:
+    build:
+      context: .
+      dockerfile: Dockerfile # Dockerfile creates /home/onetable dir and gives permissions to user
+    environment:
+      - SPARK_MODE=master
+      - SPARK_MASTER_PORT=7077
+    ports:
+      - "18080:18080" # Spark master web UI port
+      - "7077:7077" # Spark master port
+    volumes:
+      - ./jars/utilities-0.1.0-SNAPSHOT-bundled.jar:/home/onetable/utilities/target/utilities-0.1.0-SNAPSHOT-bundled.jar
+
+  spark-worker-1:
+    image: bitnami/spark:3.2.4
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
+
+  spark-worker-2:
+    image: bitnami/spark:3.2.4
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
+
+  hive-metastore:
+    container_name: hive-metastore
+    hostname: hive-metastore
+    image: 'apache/hive:4.0.0-alpha-2'
+    ports:
+      - '9083:9083' # Metastore Thrift
+    environment:
+      SERVICE_NAME: metastore
+      HIVE_METASTORE_WAREHOUSE_DIR: /home/data
+    volumes:
+      - ./data:/home/data
+
   trino:
     container_name: trino
     ports:
@@ -19,18 +60,6 @@ services:
       - ./presto/config.properties:/opt/presto-server/etc/config.properties
       - ./presto/jvm.config:/opt/presto-server/etc/jvm.config
       - ./presto/node.properties:/opt/presto-server/etc/node.properties
-      - ./data:/home/data
-
-  hive-metastore:
-    container_name: hive-metastore
-    hostname: hive-metastore
-    image: 'apache/hive:4.0.0-alpha-2'
-    ports:
-      - '9083:9083' # Metastore Thrift
-    environment:
-      SERVICE_NAME: metastore
-      HIVE_METASTORE_WAREHOUSE_DIR: /home/data
-    volumes:
       - ./data:/home/data
 
   jupyter:

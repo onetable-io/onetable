@@ -29,7 +29,7 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Catalogs',
-                    collapsed: false,
+                    collapsed: true,
                     link: {
                         type: 'doc',
                         id: 'catalogs-index'
@@ -44,7 +44,7 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Query Engines',
-                    collapsed: false,
+                    collapsed: true,
                     link: {
                         type: 'doc',
                         id: 'query-engines-index'
@@ -62,6 +62,14 @@ module.exports = {
                 }
             ]
         },
-        'demo/docker',
+        {
+            type: 'category',
+            label: 'Docker',
+            collapsed: false,
+            items: [
+                'docker/demo',
+                'docker/playground',
+            ],
+        }
     ],
 };
