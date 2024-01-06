@@ -1,6 +1,9 @@
 # OneTable
 
 [![Build Status](https://dev.azure.com/onetable-io/onetable-io/_apis/build/status%2Fonetable-io.onetable?branchName=main)](https://dev.azure.com/onetable-io/onetable-io/_build/latest?definitionId=1&branchName=main)
+[![Site Build Status](https://github.com/onetable-io/onetable/actions/workflows/site-build.yml/badge.svg)](https://github.com/onetable-io/onetable/actions/workflows/site-build.yml)
+[![Site Deploy Status](https://github.com/onetable-io/onetable/actions/workflows/site-deploy.yml/badge.svg)](https://github.com/onetable-io/onetable/actions/workflows/site-deploy.yml)
+[![Package Deploy Status](https://github.com/onetable-io/onetable/actions/workflows/package-deploy.yml/badge.svg)](https://github.com/onetable-io/onetable/actions/workflows/package-deploy.yml)
 
 OneTable is an omni-directional converter for table formats that facilitates interoperability across data processing systems
 and query engines.
@@ -13,6 +16,10 @@ For instance, OneTable enables existing Hudi users to seamlessly work with Datab
 tables with Snowflake.
 Creating transformations from one format to another is straightforward and only requires the implementation of a few interfaces,
 which we believe will facilitate the expansion of supported source and target formats in the future.
+
+[![Twitter Follow](https://img.shields.io/badge/Twitter-1D9BF0.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/OnetableOSS)
+[![Linkedin Follow](https://img.shields.io/badge/LinkedIn-0A66C2.svg?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/company/onetable-oss)
+[![READ THE DOCS](https://img.shields.io/badge/Read%20the%20Docs-8CA1AF.svg?style=for-the-badge&logo=Read-the-Docs&logoColor=white)](https://onetable.dev)
 
 # Building the project and running tests.
 1. Use Java11 for building the project. If you are using some other java version, you can use [jenv](https://github.com/jenv/jenv) to use multiple java versions locally.
