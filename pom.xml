@@ -17,7 +17,7 @@
     </modules>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>1.8</java.version>
         <avro.version>1.11.3</avro.version>
         <log4j.version>2.22.0</log4j.version>
         <junit.version>5.9.0</junit.version>
@@ -487,7 +487,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <release>${java.version}</release>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>

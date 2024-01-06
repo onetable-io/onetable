@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package io.onetable.hudi;
 
 import static io.onetable.collectors.CustomCollectors.toList;
@@ -231,22 +231,26 @@ public class BaseFileUpdatesExtractor {
     return writeStatus;
   }
 
+  private HoodieColumnRangeMetadata<Comparable> convertColStat(
+      String fileName, ColumnStat columnStat) {
+    return HoodieColumnRangeMetadata.create(
+        fileName,
+        convertFromOneTablePath(columnStat.getField().getPath()),
+        (Comparable) columnStat.getRange().getMinValue(),
+        (Comparable) columnStat.getRange().getMaxValue(),
+        columnStat.getNumNulls(),
+        columnStat.getNumValues(),
+        columnStat.getTotalSize(),
+        -1L);
+  }
+
   private Map<String, HoodieColumnRangeMetadata<Comparable>> convertColStats(
       String fileName, List<ColumnStat> columnStatMap) {
     return columnStatMap.stream()
         .filter(
             entry -> !OneType.NON_SCALAR_TYPES.contains(entry.getField().getSchema().getDataType()))
         .map(
-            columnStat ->
-                HoodieColumnRangeMetadata.<Comparable>create(
-                    fileName,
-                    convertFromOneTablePath(columnStat.getField().getPath()),
-                    (Comparable) columnStat.getRange().getMinValue(),
-                    (Comparable) columnStat.getRange().getMaxValue(),
-                    columnStat.getNumNulls(),
-                    columnStat.getNumValues(),
-                    columnStat.getTotalSize(),
-                    -1L))
+            columnStat -> convertColStat(fileName, columnStat))
         .collect(Collectors.toMap(HoodieColumnRangeMetadata::getColumnName, Function.identity()));
   }
 
