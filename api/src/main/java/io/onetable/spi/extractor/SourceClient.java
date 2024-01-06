@@ -23,6 +23,7 @@ import java.time.Instant;
 
 import io.onetable.model.*;
 import io.onetable.model.CommitsBacklog;
+import io.onetable.model.schema.OneSchema;
 import io.onetable.model.schema.SchemaCatalog;
 
 /**
@@ -47,6 +48,14 @@ public interface SourceClient<COMMIT> extends Closeable {
    * @return the schema catalog
    */
   SchemaCatalog getSchemaCatalog(OneTable table, COMMIT commit);
+
+  /**
+   * Extracts the {@link OneSchema} as of the latest state.
+   *
+   * @param table the current state of the table
+   * @return
+   */
+  OneSchema getSchema(OneTable table);
 
   /**
    * Extracts the {@link OneSnapshot} as of latest state.

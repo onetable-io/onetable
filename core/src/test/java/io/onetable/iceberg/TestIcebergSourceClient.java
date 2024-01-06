@@ -310,6 +310,17 @@ class TestIcebergSourceClient {
     // validatePendingCommits(catalogSales, snapshot1, snapshot2, snapshot3b, snapshot4);
   }
 
+  @Test
+  public void getSchema(@TempDir Path workingDir) throws IOException {
+    Table catalogSales = createTestTableWithData(workingDir.toString());
+    PerTableConfig sourceTableConfig = getPerTableConfig(catalogSales);
+    IcebergSourceClient client = clientProvider.getSourceClientInstance(sourceTableConfig);
+    IcebergSourceClient spyClient = spy(client);
+    OneSchema schema = spyClient.getSchema(null);
+    Assertions.assertNotNull(schema);
+    validateSchema(schema, catalogSales.schema());
+  }
+
   private void validatePendingCommits(Table table, Snapshot lastSync, Snapshot... snapshots) {
     InstantsForIncrementalSync instant =
         InstantsForIncrementalSync.builder()

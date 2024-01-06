@@ -49,6 +49,7 @@ import com.google.common.collect.PeekingIterator;
 import io.onetable.exception.OneIOException;
 import io.onetable.model.*;
 import io.onetable.model.CommitsBacklog;
+import io.onetable.model.schema.OneSchema;
 import io.onetable.model.schema.SchemaCatalog;
 import io.onetable.spi.extractor.SourceClient;
 
@@ -80,6 +81,11 @@ public class HudiClient implements SourceClient<HoodieInstant> {
   @Override
   public SchemaCatalog getSchemaCatalog(OneTable table, HoodieInstant commit) {
     return HudiSchemaCatalogExtractor.catalogWithTableSchema(table);
+  }
+
+  @Override
+  public OneSchema getSchema(OneTable table) {
+    return table.getReadSchema();
   }
 
   @Override

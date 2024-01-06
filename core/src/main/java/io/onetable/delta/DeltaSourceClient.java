@@ -91,6 +91,11 @@ public class DeltaSourceClient implements SourceClient<Long> {
   }
 
   @Override
+  public OneSchema getSchema(OneTable table) {
+    return table.getReadSchema();
+  }
+
+  @Override
   public OneSnapshot getCurrentSnapshot() {
     DeltaLog deltaLog = DeltaLog.forTable(sparkSession, basePath);
     Snapshot snapshot = deltaLog.snapshot();

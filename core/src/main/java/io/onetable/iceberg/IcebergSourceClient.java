@@ -130,6 +130,13 @@ public class IcebergSourceClient implements SourceClient<Snapshot> {
   }
 
   @Override
+  public OneSchema getSchema(OneTable table) {
+    Table iceTable = getSourceTable();
+    IcebergSchemaExtractor schemaExtractor = IcebergSchemaExtractor.getInstance();
+    return schemaExtractor.fromIceberg(iceTable.schema());
+  }
+
+  @Override
   public OneSnapshot getCurrentSnapshot() {
     Table iceTable = getSourceTable();
 
