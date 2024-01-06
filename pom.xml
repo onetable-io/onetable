@@ -34,7 +34,7 @@
         <test.plugin.version>2.22.2</test.plugin.version>
         <spotless.version>2.27.2</spotless.version>
         <google.java.format.version>1.8</google.java.format.version>
-        <maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
+        <maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
         <delta.standalone.version>0.5.0</delta.standalone.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-shade-plugin.version>3.4.0</maven-shade-plugin.version>
@@ -465,10 +465,11 @@
                 <version>${maven-enforcer-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>enforce-logging</id>
+                        <id>enforce-logging-and-java-version</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
+                        <phase>pre-integration-test</phase>
                         <configuration>
                             <rules>
                                 <bannedDependencies>
@@ -477,10 +478,22 @@
                                         <exclude>log4j:log4j</exclude>
                                     </excludes>
                                 </bannedDependencies>
+                                <!-- Ensure no dependencies are using incompatible versions of java -->
+                                <enforceBytecodeVersion>
+                                    <maxJdkVersion>${java.version}</maxJdkVersion>
+                                    <ignoredScopes>test</ignoredScopes>
+                                </enforceBytecodeVersion>
                             </rules>
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>extra-enforcer-rules</artifactId>
+                        <version>1.7.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -546,6 +559,7 @@
                         <goals>
                             <goal>check</goal>
                         </goals>
+                        <phase>test</phase>
                     </execution>
                 </executions>
             </plugin>
