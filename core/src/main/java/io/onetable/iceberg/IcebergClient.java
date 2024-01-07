@@ -62,6 +62,8 @@ public class IcebergClient implements TargetClient {
   private IcebergPartitionSpecSync partitionSpecSync;
   private IcebergDataFileUpdatesSync dataFileUpdatesExtractor;
   private IcebergTableManager tableManager;
+  private String tableName;
+  private String[] namespace;
   private String basePath;
   private TableIdentifier tableIdentifier;
   private IcebergCatalogConfig catalogConfig;
@@ -82,8 +84,18 @@ public class IcebergClient implements TargetClient {
       IcebergPartitionSpecSync partitionSpecSync,
       IcebergDataFileUpdatesSync dataFileUpdatesExtractor,
       IcebergTableManager tableManager) {
+    this.tableName = perTableConfig.getTableName();
+    this.basePath = perTableConfig.getTableBasePath();
+    this.configuration = configuration;
+    this.snapshotRetentionInHours = perTableConfig.getTargetMetadataRetentionInHours();
+    namespace = perTableConfig.getNamespace();
+    this.tableIdentifier =
+        namespace == null
+            ? TableIdentifier.of(tableName)
+            : TableIdentifier.of(Namespace.of(namespace), tableName);
+    this.tableManager = tableManager;
+    this.catalogConfig = (IcebergCatalogConfig) perTableConfig.getIcebergCatalogConfig();
     _init(
-        perTableConfig,
         configuration,
         schemaExtractor,
         schemaSync,
@@ -94,7 +106,6 @@ public class IcebergClient implements TargetClient {
   }
 
   private void _init(
-      PerTableConfig perTableConfig,
       Configuration configuration,
       IcebergSchemaExtractor schemaExtractor,
       IcebergSchemaSync schemaSync,
@@ -107,17 +118,8 @@ public class IcebergClient implements TargetClient {
     this.partitionSpecExtractor = partitionSpecExtractor;
     this.partitionSpecSync = partitionSpecSync;
     this.dataFileUpdatesExtractor = dataFileUpdatesExtractor;
-    String tableName = perTableConfig.getTableName();
-    this.basePath = perTableConfig.getTableBasePath();
     this.configuration = configuration;
-    this.snapshotRetentionInHours = perTableConfig.getTargetMetadataRetentionInHours();
-    String[] namespace = perTableConfig.getNamespace();
-    this.tableIdentifier =
-        namespace == null
-            ? TableIdentifier.of(tableName)
-            : TableIdentifier.of(Namespace.of(namespace), tableName);
     this.tableManager = tableManager;
-    this.catalogConfig = (IcebergCatalogConfig) perTableConfig.getIcebergCatalogConfig();
 
     if (tableManager.tableExists(catalogConfig, tableIdentifier, basePath)) {
       // Load the table state if it already exists
@@ -128,9 +130,8 @@ public class IcebergClient implements TargetClient {
   }
 
   @Override
-  public void init(PerTableConfig perTableConfig, Configuration configuration) {
+  public void init(Configuration configuration) {
     _init(
-        perTableConfig,
         configuration,
         IcebergSchemaExtractor.getInstance(),
         IcebergSchemaSync.getInstance(),
@@ -140,6 +141,56 @@ public class IcebergClient implements TargetClient {
             IcebergColumnStatsConverter.getInstance(),
             IcebergPartitionValueConverter.getInstance()),
         IcebergTableManager.of(configuration));
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param tableName
+   */
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param namespace
+   */
+  public void setNamespace(String[] namespace) {
+    this.namespace = namespace;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param basePath
+   */
+  public void setTableBasePath(String basePath) {
+    this.basePath = basePath;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param catalogConfig
+   */
+  public void setIcebergCatalogConfig(IcebergCatalogConfig catalogConfig) {
+    this.catalogConfig = catalogConfig;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param snapshotRetentionInHours
+   */
+  public void setTargetMetadataRetentionInHours(int snapshotRetentionInHours) {
+    this.snapshotRetentionInHours = snapshotRetentionInHours;
   }
 
   @Override

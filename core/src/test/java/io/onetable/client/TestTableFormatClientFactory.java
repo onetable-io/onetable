@@ -46,7 +46,7 @@ public class TestTableFormatClientFactory {
         getPerTableConfig(Arrays.asList(TableFormat.DELTA), SyncMode.INCREMENTAL);
     Configuration conf = new Configuration();
     conf.setStrings("spark.master", "local");
-    tc.init(perTableConfig, conf);
+    TableFormatClientFactory.getInstance().createForFormat(TableFormat.DELTA, perTableConfig, conf);
     assertEquals(tc.getTableFormat(), TableFormat.DELTA);
   }
 
@@ -59,7 +59,7 @@ public class TestTableFormatClientFactory {
         getPerTableConfig(Arrays.asList(TableFormat.HUDI), SyncMode.INCREMENTAL);
     Configuration conf = new Configuration();
     conf.setStrings("spark.master", "local");
-    tc.init(perTableConfig, conf);
+    TableFormatClientFactory.getInstance().createForFormat(TableFormat.HUDI, perTableConfig, conf);
     assertEquals(tc.getTableFormat(), TableFormat.HUDI);
   }
 
@@ -72,7 +72,8 @@ public class TestTableFormatClientFactory {
         getPerTableConfig(Arrays.asList(TableFormat.ICEBERG), SyncMode.INCREMENTAL);
     Configuration conf = new Configuration();
     conf.setStrings("spark.master", "local");
-    tc.init(perTableConfig, conf);
+    TableFormatClientFactory.getInstance()
+        .createForFormat(TableFormat.ICEBERG, perTableConfig, conf);
     assertEquals(tc.getTableFormat(), TableFormat.ICEBERG);
   }
 

@@ -165,17 +165,36 @@ public class HudiTargetClient implements TargetClient {
   }
 
   @Override
-  public void init(PerTableConfig perTableConfig, Configuration configuration) {
+  public void init(Configuration configuration) {
     _init(
-        perTableConfig.getTableDataPath(),
-        perTableConfig.getTargetMetadataRetentionInHours(),
+        tableDataPath,
+        timelineRetentionInHours,
         HoodieMetadataConfig.COMPACT_NUM_DELTA_COMMITS.defaultValue(),
         BaseFileUpdatesExtractor.of(
-            new HoodieJavaEngineContext(configuration),
-            new CachingPath(perTableConfig.getTableDataPath())),
+            new HoodieJavaEngineContext(configuration), new CachingPath(tableDataPath)),
         AvroSchemaConverter.getInstance(),
         HudiTableManager.of(configuration),
         CommitState::new);
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param timelineRetentionInHours
+   */
+  public void setTargetMetadataRetentionInHours(int timelineRetentionInHours) {
+    this.timelineRetentionInHours = timelineRetentionInHours;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param tableDataPath
+   */
+  public void setTableDataPath(String tableDataPath) {
+    this.tableDataPath = tableDataPath;
   }
 
   @FunctionalInterface

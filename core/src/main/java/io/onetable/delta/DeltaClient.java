@@ -73,8 +73,8 @@ public class DeltaClient implements TargetClient {
   private DeltaSchemaExtractor schemaExtractor;
   private DeltaPartitionExtractor partitionExtractor;
   private DeltaDataFileUpdatesExtractor dataFileUpdatesExtractor;
-
   private String tableName;
+  private String tableDataPath;
   private int logRetentionInHours;
   private TransactionState transactionState;
 
@@ -100,21 +100,13 @@ public class DeltaClient implements TargetClient {
       DeltaSchemaExtractor schemaExtractor,
       DeltaPartitionExtractor partitionExtractor,
       DeltaDataFileUpdatesExtractor dataFileUpdatesExtractor) {
-
-    _init(
-        tableDataPath,
-        tableName,
-        logRetentionInHours,
-        sparkSession,
-        schemaExtractor,
-        partitionExtractor,
-        dataFileUpdatesExtractor);
+    this.tableDataPath = tableDataPath;
+    this.tableName = tableName;
+    this.logRetentionInHours = logRetentionInHours;
+    _init(sparkSession, schemaExtractor, partitionExtractor, dataFileUpdatesExtractor);
   }
 
   private void _init(
-      String tableDataPath,
-      String tableName,
-      int logRetentionInHours,
       SparkSession sparkSession,
       DeltaSchemaExtractor schemaExtractor,
       DeltaPartitionExtractor partitionExtractor,
@@ -129,21 +121,47 @@ public class DeltaClient implements TargetClient {
     this.dataFileUpdatesExtractor = dataFileUpdatesExtractor;
     this.deltaLog = deltaLog;
     this.tableName = tableName;
-    this.logRetentionInHours = logRetentionInHours;
   }
 
   @Override
-  public void init(PerTableConfig perTableConfig, Configuration configuration) {
+  public void init(Configuration configuration) {
     SparkSession sparkSession = DeltaClientUtils.buildSparkSession(configuration);
 
     _init(
-        perTableConfig.getTableDataPath(),
-        perTableConfig.getTableName(),
-        perTableConfig.getTargetMetadataRetentionInHours(),
         sparkSession,
         DeltaSchemaExtractor.getInstance(),
         DeltaPartitionExtractor.getInstance(),
         DeltaDataFileUpdatesExtractor.builder().build());
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param tableName
+   */
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param tableDataPath
+   */
+  public void setTableDataPath(String tableDataPath) {
+    this.tableDataPath = tableDataPath;
+  }
+
+  /**
+   * For injection purposes from TableFormatClientFactory. To be set prior to calling the init
+   * method.
+   *
+   * @param logRetentionInHours
+   */
+  public void setTargetMetadataRetentionInHours(int logRetentionInHours) {
+    this.logRetentionInHours = logRetentionInHours;
   }
 
   @Override
